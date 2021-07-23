@@ -1,0 +1,28 @@
+﻿{
+  "Descriptor": {
+    "UId": "5413adb8-b23f-2514-c330-b91ac78ce3d8",
+    "Name": "UsrRealtyOfferType_all",
+    "ModifiedOnUtc": "\/Date(1626876788000)\/",
+    "InstallType": 0,
+    "Schema": {
+      "UId": "8d9ef04f-7df6-4287-8b4e-1084bae69557",
+      "Name": "UsrRealtyOfferType"
+    },
+    "Columns": [
+      {
+        "ColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+        "IsForceUpdate": false,
+        "IsKey": true,
+        "ColumnName": "Id",
+        "DataTypeValueUId": "23018567-a13c-4320-8687-fd6f9e3699bd"
+      },
+      {
+        "ColumnUId": "736c30a7-c0ec-4fa9-b034-2552b319b633",
+        "IsForceUpdate": false,
+        "IsKey": false,
+        "ColumnName": "Name",
+        "DataTypeValueUId": "ddb3a1ee-07e8-4d62-b7a9-d0e618b00fbd"
+      }
+    ]
+  }
+}

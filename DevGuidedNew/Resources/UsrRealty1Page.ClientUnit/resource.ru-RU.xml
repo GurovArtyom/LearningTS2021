@@ -3,6 +3,9 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Страница редактирования: &quot;Недвижимость&quot;" />
+			<Item Name="LocalizableStrings.Taba7032477TabLabelTabCaption.Value" Value="Просмотры" />
+			<Item Name="LocalizableStrings.UsrSchema0f247dfdDetail3ad5f9a0DetailCaptionOnPage.Value" Value="Просмотр недвижимости" />
+			<Item Name="LocalizableStrings.ValueMustBePositive.Value" Value="Значение должно быть больше 0" />
 		</Items>
 	</Group>
 </Resources>

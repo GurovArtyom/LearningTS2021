@@ -11,6 +11,14 @@ define("UsrRealty1Page", [], function() {
 					"masterColumn": "Id",
 					"detailColumn": "UsrRealty"
 				}
+			},
+			"UsrSchema0f247dfdDetail3ad5f9a0": {
+				"schemaName": "UsrSchema0f247dfdDetail",
+				"entitySchemaName": "UsrRealtyVisit",
+				"filter": {
+					"detailColumn": "UsrRealty",
+					"masterColumn": "Id"
+				}
 			}
 		}/**SCHEMA_DETAILS*/,
 		businessRules: /**SCHEMA_BUSINESS_RULES*/{
@@ -58,7 +66,27 @@ define("UsrRealty1Page", [], function() {
 				}
 			}
 		}/**SCHEMA_BUSINESS_RULES*/,
-		methods: {},
+		methods: {
+			positiveValueValidator: function(value, column) {
+				var msg = "";
+				if (value < 0) {
+					msg = this.get("Resources.Strings.ValueMustBePositive");
+				}				
+				return {
+					invalidMessage: msg
+				}
+			},
+			setValidationConfig: function() {
+                // Вызывает инициализацию валидаторов родительской модели представления.
+                this.callParent(arguments);
+                // Для колонки [UsrPriceUSD] добавляется метод-валидатор positiveValueValidator().
+                this.addColumnValidator("UsrAreaM2", this.positiveValueValidator);
+				this.addColumnValidator("UsrPriceUSD", this.positiveValueValidator);
+            }
+
+
+			
+		},
 		dataModels: /**SCHEMA_DATA_MODELS*/{}/**SCHEMA_DATA_MODELS*/,
 		diff: /**SCHEMA_DIFF*/[
 			{
@@ -114,6 +142,24 @@ define("UsrRealty1Page", [], function() {
 				"parentName": "ProfileContainer",
 				"propertyName": "items",
 				"index": 2
+			},
+			{
+				"operation": "insert",
+				"name": "FLOAT757216cd-03f9-43d0-bbdc-827791b3fcaa",
+				"values": {
+					"layout": {
+						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 3,
+						"layoutName": "ProfileContainer"
+					},
+					"bindTo": "UsrComissionUSD",
+					"enabled": false
+				},
+				"parentName": "ProfileContainer",
+				"propertyName": "items",
+				"index": 3
 			},
 			{
 				"operation": "insert",
@@ -174,10 +220,10 @@ define("UsrRealty1Page", [], function() {
 			},
 			{
 				"operation": "insert",
-				"name": "NotesAndFilesTab",
+				"name": "Taba7032477TabLabel",
 				"values": {
 					"caption": {
-						"bindTo": "Resources.Strings.NotesAndFilesTabCaption"
+						"bindTo": "Resources.Strings.Taba7032477TabLabelTabCaption"
 					},
 					"items": [],
 					"order": 0
@@ -185,6 +231,31 @@ define("UsrRealty1Page", [], function() {
 				"parentName": "Tabs",
 				"propertyName": "tabs",
 				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "UsrSchema0f247dfdDetail3ad5f9a0",
+				"values": {
+					"itemType": 2,
+					"markerValue": "added-detail"
+				},
+				"parentName": "Taba7032477TabLabel",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "NotesAndFilesTab",
+				"values": {
+					"caption": {
+						"bindTo": "Resources.Strings.NotesAndFilesTabCaption"
+					},
+					"items": [],
+					"order": 1
+				},
+				"parentName": "Tabs",
+				"propertyName": "tabs",
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -242,7 +313,7 @@ define("UsrRealty1Page", [], function() {
 				"operation": "merge",
 				"name": "ESNTab",
 				"values": {
-					"order": 1
+					"order": 2
 				}
 			}
 		]/**SCHEMA_DIFF*/
